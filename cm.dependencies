@@ -1,0 +1,14 @@
+[
+  {
+    "repository": "android_device_lenovo_PB1770M",
+    "target_path": "device/lenovo/PB1770M"
+  },
+  {
+    "repository": "android_kernel_lenovo_PB1770M",
+    "target_path": "kernel/lenovo/PB1770M"
+  },
+  {
+    "repository": "android_vendor_lenovo_PB1770M",
+    "target_path": "vendor/lenovo/PB1770M"
+  }
+]
