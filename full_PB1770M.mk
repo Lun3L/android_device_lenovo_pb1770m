@@ -21,12 +21,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from PB1770M device
 $(call inherit-product, device/lenovo/PB1770M/device.mk)
 
-# Device vendor
-$(call inherit-product-if-exists, vendor/lenovo/PB1770M/PB1770M-vendor.mk)
-
 # Device identifier. This must come after all inclusions
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_DEVICE := PB1770M
-PRODUCT_NAME := cm_PB1770M
-PRODUCT_BRAND := Lenovo
+PRODUCT_NAME := full_PB1770M
+PRODUCT_BRAND := lenovo
 PRODUCT_MANUFACTURER := lenovo

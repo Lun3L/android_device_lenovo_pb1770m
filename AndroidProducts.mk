@@ -1,7 +1,2 @@
-# Local Path
-LOCAL_PATH := device/lenovo/PB1770M
-
-ALL_PREBUILT += $(INSTALLED_KERNEL_TARGET)
-
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/cm_PB1770M.mk \
+    $(LOCAL_DIR)/full_PB1770M.mk \

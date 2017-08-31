@@ -4,6 +4,10 @@ LOCAL_PATH := device/lenovo/PB1770M
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
+# VENDORS
+$(call inherit-product-if,exists, vendor/lenovo/PB1770M/PB1770M-vendor.mk)
+
+
 # Ramdisk
 PRODUCT_COPY_FILES += \
      $(LOCAL_PATH)/rootdir/init.target.rc:root/init.target.rc \

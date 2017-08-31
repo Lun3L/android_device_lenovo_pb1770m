@@ -18,7 +18,7 @@ PRODUCT_RELEASE_NAME := PB1770M
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
 # Inherit device configuration
-$(call inherit-product, device/lenovo/PB1770M/device.mk)
+$(call inherit-product, device/lenovo/PB1770M/full_PB1770M.mk)
 
 # Boot animation
 TARGET_SCREEN_WIDTH := 1080
@@ -26,8 +26,5 @@ TARGET_SCREEN_HEIGHT := 1920
 
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := PB1770M
 PRODUCT_NAME := cm_PB1770M
-PRODUCT_BRAND := Android
-PRODUCT_MODEL := PB1770M
-PRODUCT_MANUFACTURER := lenovo
+
