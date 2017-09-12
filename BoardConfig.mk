@@ -1,9 +1,6 @@
 # inherit from the proprietary version
 -include vendor/lenovo/PB1770M/BoardConfigVendor.mk
 
-VENDOR_PATHLOP := vendor/cm
-
-
 # Board Informations
 TARGET_OTA_ASSERT_DEVICE := PB1770M, PB1-770M
 TARGET_NO_BOOTLOADER := true
@@ -71,7 +68,7 @@ WIFI_DRIVER_FW_PATH_STA     := "/vendor/firmware/fw_bcmdhd.bin"
 
 
 # Additional Settings3
-BOARD_DTBTOOL_ARGS := -2
+# BOARD_DTBTOOL_ARGS := -2
 BOARD_KERNEL_CMDLINE := sched_enable_hmp=1 console=tty60,115200,n8 androidboot.console=tty60 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlyprintk androidboot.selinux=permissive androidboot.emmc=true androidboot.hwid=TBD
 ENABLE_CPUSETS := true
 BOARD_KERNEL_BASE := 0x80000000
@@ -80,6 +77,9 @@ BOARD_MKBOOTIMG_ARGS := --tags_offset 0x00000100
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_RAMDISK_OFFSET     := 0x01000000
+
+# use custom mkbootimg (experimental)
+BOARD_CUSTOM_BOOTIMG_MK := device/lenovo/PB1770M/mkbootimg.mk
 
 # Display
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
