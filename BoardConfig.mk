@@ -71,10 +71,15 @@ WIFI_DRIVER_FW_PATH_STA     := "/vendor/firmware/fw_bcmdhd.bin"
 
 
 # Additional Settings3
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlyprintk androidboot.selinux=permissive
+BOARD_DTBTOOL_ARGS := -2
+BOARD_KERNEL_CMDLINE := sched_enable_hmp=1 console=tty60,115200,n8 androidboot.console=tty60 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlyprintk androidboot.selinux=permissive androidboot.emmc=true androidboot.hwid=TBD
+ENABLE_CPUSETS := true
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --tags_offset 0x00000100
+BOARD_KERNEL_SEPARATED_DT := true
+BOARD_KERNEL_TAGS_OFFSET := 0x00000100
+BOARD_RAMDISK_OFFSET     := 0x01000000
 
 # Display
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
@@ -93,15 +98,15 @@ TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_USES_UNCOMPRESSED_KERNEL := true
 TARGET_KERNEL_CONFIG := PB1770M_defconfig
 
-# CMHW 
-BOARD_USES_CYANOGEN_HARDWARE := true
+# CMHW
 BOARD_HARDWARE_CLASS += hardware/cyanogen/cmhw
 
 # FILE SYSTEM TYPES
 #BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4
-#TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_USERIMAGES_USE_EXT4 := true
 
 # SELinux
+BOARD_SEPOLICY_DIRS += device/lenovo/PB1770M/sepolicy
 include device/qcom/sepolicy/sepolicy.mk
 
 
@@ -129,6 +134,7 @@ TARGET_SYSTEM_PROP += device/lenovo/PB1770M/system.prop
 
 # Experimental Settings
 # TARGET_PROVIDES_INIT_RC := true
+TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 
 # Qualcomm support
 ifneq ($(QCPATH),)
