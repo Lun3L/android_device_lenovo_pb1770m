@@ -267,3 +267,36 @@ PRODUCT_PACKAGES += \
     libcnefeatureconfig \
     librmnetctl \
     libxml2
+
+# Audio
+PRODUCT_PACKAGES += \
+    audiod \
+    audio.a2dp.default \
+    audio.primary.msm8916 \
+    audio.r_submix.default \
+    audio.usb.default \
+    libqcompostprocbundle \
+    libqcomvisualizer \
+    libqcomvoiceprocessing \
+    tinymix
+
+# Audio configuration
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
+
+# Properties
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.qc.sdk.audio.fluencetype=fluence \
+	persist.audio.fluence.voicecall=true \
+	persist.audio.fluence.voicerec=false \
+	persist.audio.fluence.speaker=true
+
+# Properties
+PRODUCT_PROPERTY_OVERRIDES += \
+	audio.offload.buffer.size.kb=64 \
+	audio.offload.min.duration.secs=30 \
+	audio.offload.video=true \
+	use.voice.path.for.pcm.voip=true \
+	ro.fm.transmitter=false \
+	audio.offload.gapless.enabled=true
+
