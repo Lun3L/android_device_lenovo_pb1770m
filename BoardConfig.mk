@@ -132,7 +132,7 @@ BOARD_PERSISTIMAGE_PARTITION_SIZE := 33554432
 TARGET_SYSTEM_PROP += device/lenovo/PB1770M/system.prop
 
 # Experimental Settings
-# TARGET_PROVIDES_INIT_RC := true
+TARGET_PROVIDES_INIT_RC := true
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 
 # Qualcomm support
