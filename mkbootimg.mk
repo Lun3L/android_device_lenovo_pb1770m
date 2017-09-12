@@ -3,7 +3,7 @@ LOCAL_PATH := $(call my-dir)
 ## Build and run dtbtool
 DTBTOOL := $(HOST_OUT_EXECUTABLES)/dtbToolCM$(HOST_EXECUTABLE_SUFFIX)
 INSTALLED_DTIMAGE_TARGET := $(PRODUCT_OUT)/dt.img
-DTBTAGNAME := "sprd,sc-id = <"
+DTBTAGNAME := "qcom,msm-id = <"
 
 ifneq ($(TARGET_KERNEL_ARCH),)
 KERNEL_ARCH := $(TARGET_KERNEL_ARCH)

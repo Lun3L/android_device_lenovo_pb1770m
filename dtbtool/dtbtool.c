@@ -40,12 +40,12 @@
 #include <errno.h>
 #include <unistd.h>
 
-//#define QCDT_MAGIC     "QCDT"  /* Master DTB magic */
-#define QCDT_MAGIC     "SPRD"  /* Master DTB magic */
+#define QCDT_MAGIC     "QCDT"  /* Master DTB magic */
+//#define QCDT_MAGIC     "SPRD"  /* Master DTB magic */
 #define QCDT_VERSION   1       /* QCDT version */
 
-//#define QCDT_DT_TAG    "qcom,msm-id = <"
-#define QCDT_DT_TAG    "sprd,sc-id = <"
+#define QCDT_DT_TAG    "qcom,msm-id = <"
+//#define QCDT_DT_TAG    "sprd,sc-id = <"
 
 #define PAGE_SIZE_DEF  2048
 #define PAGE_SIZE_MAX  (1024*1024)
