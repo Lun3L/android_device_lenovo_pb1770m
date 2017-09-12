@@ -96,7 +96,7 @@ TARGET_KERNEL_SOURCE := kernel/lenovo/PB1770M
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 # maybe we are using zimage
-# TARGET_USES_UNCOMPRESSED_KERNEL := true
+TARGET_USES_UNCOMPRESSED_KERNEL := true
 TARGET_KERNEL_CONFIG := PB1770M_defconfig
 
 # CMHW
@@ -110,13 +110,14 @@ TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_SEPOLICY_DIRS += device/lenovo/PB1770M/sepolicy
 include device/qcom/sepolicy/sepolicy.mk
 
+#signed
+TARGET_BOOTIMG_SIGNED := true
 
 # charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGER_SHOW_PERCENTAGE := true
-BOARD_CHARGER_SHOW_PERCENTAGE := true
 WITH_CM_CHARGER := true
-TARGET_KEYMASTER_WAIT_FOR_QSEE := true
+# TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 
 # fix this up by examining /proc/mtd on a running device
 BOARD_BOOTIMAGE_PARTITION_SIZE := 33554432
