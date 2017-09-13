@@ -100,14 +100,6 @@ start_msm_irqbalance()
 	fi
 }
 
-start_copying_prebuilt_qcril_db()
-{
-    if [ -f /system/vendor/qcril.db -a ! -f /data/misc/radio/qcril.db ]; then
-        cp /system/vendor/qcril.db /data/misc/radio/qcril.db
-        chown -h radio.radio /data/misc/radio/qcril.db
-    fi
-}
-
 baseband=`getprop ro.baseband`
 echo 1 > /proc/sys/net/ipv6/conf/default/accept_ra_defrtr
 
@@ -192,38 +184,6 @@ case "$target" in
         ;;
     "msm8916")
         start_msm_irqbalance_8939
-        if [ -f /sys/devices/soc0/soc_id ]; then
-            soc_id=`cat /sys/devices/soc0/soc_id`
-        else
-            soc_id=`cat /sys/devices/system/soc/soc0/id`
-        fi
-
-        if [ -f /sys/devices/soc0/platform_subtype_id ]; then
-             platform_subtype_id=`cat /sys/devices/soc0/platform_subtype_id`
-        fi
-        if [ -f /sys/devices/soc0/hw_platform ]; then
-             hw_platform=`cat /sys/devices/soc0/hw_platform`
-        fi
-        case "$soc_id" in
-             "239")
-                  case "$hw_platform" in
-                       "Surf")
-                            case "$platform_subtype_id" in
-                                 "1" | "2")
-                                      setprop qemu.hw.mainkeys 0
-                                      ;;
-                            esac
-                            ;;
-                       "MTP")
-                            case "$platform_subtype_id" in
-                                 "3")
-                                      setprop qemu.hw.mainkeys 0
-                                      ;;
-                            esac
-                            ;;
-                  esac
-                  ;;
-        esac
         ;;
     "msm8994")
         start_msm_irqbalance
@@ -242,16 +202,3 @@ case "$emmc_boot"
         fi
     ;;
 esac
-
-#
-# Copy qcril.db if needed for RIL
-#
-start_copying_prebuilt_qcril_db
-echo 1 > /data/misc/radio/db_check_done
-
-rm -rf /data/misc/radio/modem_config
-mkdir /data/misc/radio/modem_config
-cp -r /firmware/image/modem_pr/mcfg/configs/mcfg_sw/generic/mbn_ota/* /data/misc/radio/modem_config
-chown -hR radio.radio /data/misc/radio/modem_config
-chmod -R 770 /data/misc/radio/modem_config
-echo 1 > /data/misc/radio/copy_complete 

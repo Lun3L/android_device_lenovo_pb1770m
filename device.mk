@@ -89,11 +89,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml
 
-
-# Init scripts
-PRODUCT_PACKAGES += \
-    init.qcom.usb.rc
-
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.ethernet.xml:system/etc/permissions/android.hardware.ethernet.xml \
@@ -185,7 +180,15 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init.qcom.usb.rc:root/:root/init.qcom.usb.rc \
     $(LOCAL_PATH)/rootdir/init.qcom.usb.sh:root/init.qcom.usb.sh \
     $(LOCAL_PATH)/rootdir/ueventd.qcom.rc:root/ueventd.qcom.rc \
-    $(LOCAL_PATH)/rootdir/init.target.rc:root/init.target.rc
+    $(LOCAL_PATH)/rootdir/init.target.rc:root/init.target.rc \
+    $(LOCAL_PATH)/rootdir/fstab.qcom:root/fstab.qcom \
+    $(LOCAL_PATH)/rootdir/init.trace.rc:root/init.trace.rc \
+    $(LOCAL_PATH)/rootdir/init.rc:root/init.rc \
+    $(LOCAL_PATH)/rootdir/init.zygote32.rc:root/init.zygote32.rc \
+    $(LOCAL_PATH)/rootdir/init.zygote64_32.rc:root/init.zygote64_32.rc \
+    $(LOCAL_PATH)/rootdir/init.enviorn.rc:root/init.enviorn.rc \
+    $(LOCAL_PATH)/rootdir/ueventd.rc:root/ueventd.rc \
+    $(LOCAL_PATH)/rootdir/init.usb.rc:root/init.usb.rc
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1920
@@ -303,4 +306,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	use.voice.path.for.pcm.voip=true \
 	ro.fm.transmitter=false \
 	audio.offload.gapless.enabled=true
+
+
 
