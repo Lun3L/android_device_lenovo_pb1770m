@@ -69,7 +69,7 @@ WIFI_DRIVER_FW_PATH_STA     := "/vendor/firmware/fw_bcmdhd.bin"
 
 # Additional Settings3
 BOARD_DTBTOOL_ARGS := -2
-BOARD_KERNEL_CMDLINE := sched_enable_hmp=1 console=tty60,115200,n8 androidboot.console=tty60 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlyprintk androidboot.selinux=permissive androidboot.emmc=true androidboot.hwid=TBD
+BOARD_KERNEL_CMDLINE := sched_enable_hmp=1 console=tty60,115200,n8 androidboot.console=tty60 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlyprintk androidboot.selinux=disabled androidboot.emmc=true androidboot.hwid=TBD
 ENABLE_CPUSETS := true
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
@@ -89,6 +89,7 @@ OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 BOARD_USES_HWCOMPOSER := true
 TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 TARGET_USES_ION := true
+TARGET_CONTINUOUS_SPLASH_ENABLED := true
 USE_OPENGL_RENDERER := true
 
 # kernel
@@ -116,8 +117,8 @@ TARGET_BOOTIMG_SIGNED := true
 # charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGER_SHOW_PERCENTAGE := true
-WITH_CM_CHARGER := true
-# TARGET_KEYMASTER_WAIT_FOR_QSEE := true
+# WITH_CM_CHARGER := true
+TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 
 # fix this up by examining /proc/mtd on a running device
 BOARD_BOOTIMAGE_PARTITION_SIZE := 33554432
@@ -132,7 +133,9 @@ BOARD_PERSISTIMAGE_PARTITION_SIZE := 33554432
 TARGET_SYSTEM_PROP += device/lenovo/PB1770M/system.prop
 
 # Experimental Settings
-TARGET_PROVIDES_INIT_RC := true
+# TARGET_PROVIDES_INIT_RC := true
+TARGET_INIT_VENDOR_LIB := libinit_msm
+TARGET_RECOVERY_DEVICE_MODULES := libinit_PB1770M
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 
 # Qualcomm support
@@ -142,8 +145,8 @@ TARGET_LDPRELOAD := libNimsWrap.so
 endif
 TARGET_POWERHAL_VARIANT := qcom
 TARGET_RIL_VARIANT := caf 
-# BOARD_USES_QC_TIME_SERVICES := true
-# BOARD_USES_QCOM_HARDWARE := true
+BOARD_USES_QC_TIME_SERVICES := true
+BOARD_USES_QCOM_HARDWARE := true
 
 # RECOVERY
 TARGET_RECOVERY_FSTAB := device/lenovo/PB1770M/rootdir/fstab.qcom

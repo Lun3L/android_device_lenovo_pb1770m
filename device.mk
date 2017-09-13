@@ -186,7 +186,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init.rc:root/init.rc \
     $(LOCAL_PATH)/rootdir/init.zygote32.rc:root/init.zygote32.rc \
     $(LOCAL_PATH)/rootdir/init.zygote64_32.rc:root/init.zygote64_32.rc \
-    $(LOCAL_PATH)/rootdir/init.enviorn.rc:root/init.enviorn.rc \
+    $(LOCAL_PATH)/rootdir/init.environ.rc:root/init.environ.rc \
     $(LOCAL_PATH)/rootdir/ueventd.rc:root/ueventd.rc \
     $(LOCAL_PATH)/rootdir/init.usb.rc:root/init.usb.rc
 
