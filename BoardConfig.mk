@@ -27,11 +27,11 @@ AUDIO_FEATURE_ENABLED_KPI_OPTIMIZE := true
 AUDIO_FEATURE_ENABLED_NEW_SAMPLE_RATE := true
 BOARD_USES_ALSA_AUDIO := true
 TARGET_QCOM_AUDIO_VARIANT := caf
-AUDIO_FEATURE_ENABLED_DS2_DOLBY_DAP := true
-DOLBY_DDP := true
-DOLBY_DAP := true
-AUDIO_FEATURE_ENABLED_AUDIO_AAC_OFFLOAD := true
-AUDIO_FEATURE_ENABLED_AUDIO_WMA_OFFLOAD := true
+#AUDIO_FEATURE_ENABLED_DS2_DOLBY_DAP := true
+#DOLBY_DDP := true
+#DOLBY_DAP := true
+#AUDIO_FEATURE_ENABLED_AUDIO_AAC_OFFLOAD := true
+#AUDIO_FEATURE_ENABLED_AUDIO_WMA_OFFLOAD := true
 
 # Additional Setting
 TARGET_BOOTLOADER_BOARD_NAME := MSM8916
@@ -52,7 +52,7 @@ BOARD_CHARGER_DISABLE_INIT_BLANK := true
 # Additional Settings2
 TARGET_QCOM_NO_FM_FIRMWARE := true
 BOARD_HAVE_QCOM_FM := true
-AUDIO_FEATURE_ENABLED_FM_POWER_OPT :=true
+AUDIO_FEATURE_ENABLED_FM_POWER_OPT := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 
 # Wifi related defines
@@ -69,7 +69,7 @@ WIFI_DRIVER_FW_PATH_STA     := "/vendor/firmware/fw_bcmdhd.bin"
 
 # Additional Settings3
 BOARD_DTBTOOL_ARGS := -2
-BOARD_KERNEL_CMDLINE := sched_enable_hmp=1 console=tty60,115200,n8 androidboot.console=tty60 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlyprintk androidboot.selinux=disabled androidboot.emmc=true androidboot.hwid=TBD
+BOARD_KERNEL_CMDLINE := sched_enable_hmp=1 console=tty60,115200,n8 androidboot.console=tty60 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlyprintk androidboot.selinux= androidboot.emmc=true androidboot.hwid=TBD
 ENABLE_CPUSETS := true
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
@@ -112,7 +112,7 @@ BOARD_SEPOLICY_DIRS += device/lenovo/PB1770M/sepolicy
 include device/qcom/sepolicy/sepolicy.mk
 
 #signed
-TARGET_BOOTIMG_SIGNED := true
+# TARGET_BOOTIMG_SIGNED := true
 
 # charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
@@ -134,8 +134,8 @@ TARGET_SYSTEM_PROP += device/lenovo/PB1770M/system.prop
 
 # Experimental Settings
 # TARGET_PROVIDES_INIT_RC := true
-TARGET_INIT_VENDOR_LIB := libinit_msm
-TARGET_RECOVERY_DEVICE_MODULES := libinit_PB1770M
+# TARGET_INIT_VENDOR_LIB := libinit_msm
+# TARGET_RECOVERY_DEVICE_MODULES := libinit_PB1770M
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 
 # Qualcomm support
@@ -151,7 +151,7 @@ BOARD_USES_QCOM_HARDWARE := true
 # RECOVERY
 TARGET_RECOVERY_FSTAB := device/lenovo/PB1770M/rootdir/fstab.qcom
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-BOARD_HAS_NO_MISC_PARTITION := true
+#BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_SUPPRESS_EMMC_WIPE := true
 # GPS
 BOARD_USES_QCOM_GPS := true
